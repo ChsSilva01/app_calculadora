@@ -35,20 +35,21 @@
         app:layout_constraintTop_toBottomOf="@+id/switchTheme"
         tools:ignore="MissingConstraints" />
 
-    <TextView
+    <EditText
         android:id="@+id/textview_calculate"
         android:layout_width="335dp"
         android:layout_height="96dp"
         android:layout_marginTop="16dp"
+        android:autofillHints=""
         android:fontFamily="sans-serif-light"
-        android:text="@string/text_calculate_now"
+        android:inputType="number"
         android:textAlignment="textEnd"
         android:textColor="@color/white"
         android:textSize="75sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_history"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="LabelFor,MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_clear"
@@ -118,7 +119,8 @@
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear"
+        />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_eight"
