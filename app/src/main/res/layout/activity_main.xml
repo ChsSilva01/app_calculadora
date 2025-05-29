@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switchTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:checked="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:thumbIcon="@drawable/ic_dark" />
+
+    <TextView
+        android:id="@+id/textview_history"
+        android:layout_width="335dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/text_history"
+        android:textAlignment="textEnd"
+        android:textColor="@color/medium_emphasis_low"
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchTheme"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textview_calculate"
+        android:layout_width="335dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/text_calculate_now"
+        android:textAlignment="textEnd"
+        android:textColor="@color/white"
+        android:textSize="75sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_history"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_clear"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_button_clear"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_calculate" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_more_and_less"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_more_and_less"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@+id/btn_clear"
+        app:layout_constraintTop_toBottomOf="@+id/textview_calculate" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_percentage"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_percentage"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@+id/btn_more_and_less"
+        app:layout_constraintTop_toBottomOf="@+id/textview_calculate" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_division"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_azul"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_division"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@+id/btn_percentage"
+        app:layout_constraintTop_toBottomOf="@+id/textview_calculate" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_seven"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_seven"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_eight"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_eight"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_seven"
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_nine"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_nine"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_eight"
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_multiplication"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_azul"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_multiplication"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_nine"
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_four"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_four"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_seven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_five"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_five"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_four"
+        app:layout_constraintTop_toBottomOf="@+id/btn_seven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_six"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_six"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_five"
+        app:layout_constraintTop_toBottomOf="@+id/btn_seven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_subtraction"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_azul"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_subtraction"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_six"
+        app:layout_constraintTop_toBottomOf="@+id/btn_seven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_one"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_one"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_four" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_two"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_two"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_one"
+        app:layout_constraintTop_toBottomOf="@+id/btn_four" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_tree"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_tree"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_two"
+        app:layout_constraintTop_toBottomOf="@+id/btn_four" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_plus"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_azul"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_plus"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_tree"
+        app:layout_constraintTop_toBottomOf="@+id/btn_subtraction" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_dot"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_dot"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_one" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_zero"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_zero"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_dot"
+        app:layout_constraintTop_toBottomOf="@+id/btn_two" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_delete"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_branco"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_delete"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_zero"
+        app:layout_constraintTop_toBottomOf="@+id/btn_one" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_equal"
+        android:layout_width="71.75dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_menos_arredondado_azul"
+        android:fontFamily="sans-serif"
+        android:text="@string/text_equal"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toRightOf="@id/btn_delete"
+        app:layout_constraintTop_toBottomOf="@+id/btn_plus" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
