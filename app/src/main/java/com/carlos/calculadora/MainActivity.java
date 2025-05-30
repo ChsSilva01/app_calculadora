@@ -1,6 +1,7 @@
 package com.carlos.calculadora;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -15,9 +16,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final ArrayList<String> userTyped = new ArrayList<>(); // ✅ variáveis da classe aqui dentro
-    private int num1 = 0;
-    private int num2 = 0;
+    private ArrayList<String> userTyped = new ArrayList<>();
+    private final ArrayList<String> userTypedSave = new ArrayList<>();// ✅ variáveis da classe aqui dentro
+    private ArrayList<String> current_result_one = new ArrayList<>();
+    private ArrayList<String> current_result_two = new ArrayList<>();
     private String operation = "";
 
     @Override
@@ -36,33 +38,46 @@ public class MainActivity extends AppCompatActivity {
         AppCompatButton button_plus = findViewById(R.id.btn_plus);
         AppCompatButton button_equal = findViewById(R.id.btn_equal);
         EditText editText_calculate = findViewById(R.id.textview_calculate);
+        AppCompatButton button_clear = findViewById(R.id.btn_clear);
 
+        button_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.clear();
+                current_result_one.clear();
+                current_result_two.clear();
+                editText_calculate.setText("");
+
+            }
+        });
         button_one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<String> userTyped = new ArrayList<>();
                 userTyped.add("1");
-
-                editText_calculate.setText(userTyped); // agora sim, funciona
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
             }
         });
 
         button_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operation = "+"; // ❌ você estava criando outra variável com `String operation = ...`
+                operation = "plus"; // ❌ você estava criando outra variável com `String operation = ...`
                 editText_calculate.setText("");
+                userTyped = userTypedSave;
+                userTyped.clear();
             }
         });
 
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (operation.equals("+")) { // ✅ use .equals para comparar strings
-                    num2 = Integer.parseInt(editText_calculate.getText().toString());
-                    int result = num1 + num2;
-                    editText_calculate.setText(String.valueOf(result));
-                }
+                int current_number_one = Integer.parseInt(String.join("", userTyped));
+                int current_number_two = Integer.parseInt(String.join("", userTypedSave));
+
+                int result = current_number_two + current_number_one;
+
+                editText_calculate.setText(result);
             }
         });
     }
