@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> userTyped = new ArrayList<>();
-    private final ArrayList<String> userTypedSave = new ArrayList<>();// ✅ variáveis da classe aqui dentro
+    private final ArrayList<String> userTypedSave = new ArrayList<>();
     private String operation = "";
 
     @Override
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 operation = "plus"; // ❌ você estava criando outra variável com `String operation = ...`
                 editText_calculate.setText("");
-                userTyped = userTypedSave;
+                userTypedSave.addAll(userTyped);
                 userTyped.clear();
             }
         });
@@ -74,10 +74,14 @@ public class MainActivity extends AppCompatActivity {
                 String current_number_one = String.join("",userTyped);
                 String current_number_two = String.join("",userTypedSave);
 
-                editText_calculate.setText(current_number_two);
+                int number_one = Integer.parseInt(current_number_one);
+                int number_two = Integer.parseInt(current_number_two);
 
-                Log.d("userTyped", "Sei la: " + current_number_one);
-                Log.d("userTypedSave", "sei la ao quadrado: " + current_number_two);
+                int result = number_one + number_two;
+
+                String message = Integer.toString(result);
+                editText_calculate.setText(message);
+
             }
         });
     }
