@@ -1,5 +1,6 @@
 package com.carlos.calculadora;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> userTyped = new ArrayList<>();
     private final ArrayList<String> userTypedSave = new ArrayList<>();// ✅ variáveis da classe aqui dentro
-    private ArrayList<String> current_result_one = new ArrayList<>();
-    private ArrayList<String> current_result_two = new ArrayList<>();
     private String operation = "";
 
     @Override
@@ -44,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 userTyped.clear();
-                current_result_one.clear();
-                current_result_two.clear();
+                userTypedSave.clear();
+                operation = "";
                 editText_calculate.setText("");
 
             }
@@ -72,12 +71,13 @@ public class MainActivity extends AppCompatActivity {
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int current_number_one = Integer.parseInt(String.join("", userTyped));
-                int current_number_two = Integer.parseInt(String.join("", userTypedSave));
+                String current_number_one = String.join("",userTyped);
+                String current_number_two = String.join("",userTypedSave);
 
-                int result = current_number_two + current_number_one;
+                editText_calculate.setText(current_number_two);
 
-                editText_calculate.setText(result);
+                Log.d("userTyped", "Sei la: " + current_number_one);
+                Log.d("userTypedSave", "sei la ao quadrado: " + current_number_two);
             }
         });
     }
