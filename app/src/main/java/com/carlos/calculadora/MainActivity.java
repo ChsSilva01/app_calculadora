@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,10 +36,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
         AppCompatButton button_one = findViewById(R.id.btn_one);
+        AppCompatButton button_two = findViewById(R.id.btn_two);
+        AppCompatButton button_tree = findViewById(R.id.btn_tree);
+        AppCompatButton button_four = findViewById(R.id.btn_four);
+        AppCompatButton button_five = findViewById(R.id.btn_five);
+        AppCompatButton button_six = findViewById(R.id.btn_six);
+        AppCompatButton button_seven = findViewById(R.id.btn_seven);
+        AppCompatButton button_eight = findViewById(R.id.btn_eight);
+        AppCompatButton button_nine = findViewById(R.id.btn_nine);
+        AppCompatButton button_zero = findViewById(R.id.btn_zero);
+
         AppCompatButton button_plus = findViewById(R.id.btn_plus);
+        AppCompatButton button_subtraction = findViewById(R.id.btn_subtraction);
+        AppCompatButton button_multiplication = findViewById(R.id.btn_multiplication);
+        AppCompatButton button_division = findViewById(R.id.btn_division);
+
         AppCompatButton button_equal = findViewById(R.id.btn_equal);
+
         EditText editText_calculate = findViewById(R.id.textview_calculate);
+
         AppCompatButton button_clear = findViewById(R.id.btn_clear);
+
 
         button_clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         button_one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +77,88 @@ public class MainActivity extends AppCompatActivity {
                 editText_calculate.setText(current_number);
             }
         });
+
+        button_two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("2");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
+        button_tree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("3");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
+        button_four.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("4");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
+        button_five.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("5");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
+        button_six.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("6");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
+        button_seven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("7");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
+        button_eight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("8");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
+        button_nine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("9");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
+        button_zero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userTyped.add("0");
+                String current_number = String.join("", userTyped);
+                editText_calculate.setText(current_number);
+            }
+        });
+
 
         button_plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,19 +170,89 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        button_subtraction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                operation = "subtraction";
+                editText_calculate.setText("");
+                userTypedSave.addAll(userTyped);
+                userTyped.clear();
+            }
+        });
+
+        button_multiplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                operation = "multiplication";
+                editText_calculate.setText("");
+                userTypedSave.addAll(userTyped);
+                userTyped.clear();
+            }
+        });
+
+        button_division.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                operation = "division";
+                editText_calculate.setText("");
+                userTypedSave.addAll(userTyped);
+                userTyped.clear();
+            }
+        });
+
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String current_number_one = String.join("",userTyped);
-                String current_number_two = String.join("",userTypedSave);
+                if (operation.equals("plus")){
+                    String current_number_one = String.join("",userTyped);
+                    String current_number_two = String.join("",userTypedSave);
 
-                int number_one = Integer.parseInt(current_number_one);
-                int number_two = Integer.parseInt(current_number_two);
+                    int number_one = Integer.parseInt(current_number_one);
+                    int number_two = Integer.parseInt(current_number_two);
 
-                int result = number_one + number_two;
+                    int result = number_one + number_two;
 
-                String message = Integer.toString(result);
-                editText_calculate.setText(message);
+                    String message = Integer.toString(result);
+                    editText_calculate.setText(message);
+
+                } else if(operation.equals("subtraction")){
+                    String current_number_one = String.join("",userTyped);
+                    String current_number_two = String.join("",userTypedSave);
+
+                    int number_one = Integer.parseInt(current_number_one);
+                    int number_two = Integer.parseInt(current_number_two);
+
+                    int result = number_one - number_two;
+
+                    String message = Integer.toString(result);
+                    editText_calculate.setText(message);
+
+                } else if(operation.equals("multiplication")){
+                    String current_number_one = String.join("",userTyped);
+                    String current_number_two = String.join("",userTypedSave);
+
+                    int number_one = Integer.parseInt(current_number_one);
+                    int number_two = Integer.parseInt(current_number_two);
+
+                    int result = number_one * number_two;
+
+                    String message = Integer.toString(result);
+                    editText_calculate.setText(message);
+
+                } else if(operation.equals("division")){
+                    String current_number_one = String.join("",userTyped);
+                    String current_number_two = String.join("",userTypedSave);
+
+                    int number_one = Integer.parseInt(current_number_one);
+                    int number_two = Integer.parseInt(current_number_two);
+
+                    int result = number_two / number_one;
+
+                    String message = Integer.toString(result);
+                    editText_calculate.setText(message);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Faça a lógica de forma correta", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
