@@ -26,7 +26,7 @@
         android:layout_height="47dp"
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-light"
-        android:text="@string/text_history"
+        android:text=""
         android:textAlignment="textEnd"
         android:textColor="@color/medium_emphasis_low"
         android:textSize="40sp"
@@ -36,7 +36,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/textview_calculate"
+        android:id="@+id/editText_calculate"
         android:layout_width="335dp"
         android:layout_height="96dp"
         android:layout_marginTop="16dp"
@@ -63,7 +63,7 @@
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_calculate" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_more_and_less"
@@ -77,7 +77,7 @@
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintLeft_toRightOf="@+id/btn_clear"
-        app:layout_constraintTop_toBottomOf="@+id/textview_calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_calculate" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_percentage"
@@ -91,7 +91,7 @@
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintLeft_toRightOf="@+id/btn_more_and_less"
-        app:layout_constraintTop_toBottomOf="@+id/textview_calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_calculate" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_division"
@@ -105,7 +105,7 @@
         android:textColor="@color/white"
         android:textSize="32sp"
         app:layout_constraintLeft_toRightOf="@+id/btn_percentage"
-        app:layout_constraintTop_toBottomOf="@+id/textview_calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_calculate" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_seven"
@@ -119,8 +119,7 @@
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_clear"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_eight"
@@ -315,6 +314,7 @@
         android:text="@string/text_delete"
         android:textColor="@color/black"
         android:textSize="32sp"
+
         app:layout_constraintLeft_toRightOf="@id/btn_zero"
         app:layout_constraintTop_toBottomOf="@+id/btn_one" />
 
@@ -332,7 +332,12 @@
         app:layout_constraintLeft_toRightOf="@id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/btn_plus" />
 
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="-21dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

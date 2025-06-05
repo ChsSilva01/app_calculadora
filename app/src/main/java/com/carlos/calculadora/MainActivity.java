@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> userTyped = new ArrayList<>();
     private final ArrayList<String> userTypedSave = new ArrayList<>();
     private String operation = "";
+    private Integer result = 0;
+    private String resultString = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
         AppCompatButton button_equal = findViewById(R.id.btn_equal);
 
-        EditText editText_calculate = findViewById(R.id.textview_calculate);
+        EditText editText_calculate = findViewById(R.id.editText_calculate);
+        TextView editText_history = findViewById(R.id.textview_history);
 
         AppCompatButton button_clear = findViewById(R.id.btn_clear);
 
@@ -203,56 +207,76 @@ public class MainActivity extends AppCompatActivity {
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (operation.equals("plus")){
-                    String current_number_one = String.join("",userTyped);
-                    String current_number_two = String.join("",userTypedSave);
+                switch (operation) {
+                    case "plus": {
+                        String current_number_one = String.join("", userTyped);
+                        String current_number_two = String.join("", userTypedSave);
 
-                    int number_one = Integer.parseInt(current_number_one);
-                    int number_two = Integer.parseInt(current_number_two);
+                        int number_one = Integer.parseInt(current_number_one);
+                        int number_two = Integer.parseInt(current_number_two);
 
-                    int result = number_one + number_two;
+                        result = number_one + number_two;
 
-                    String message = Integer.toString(result);
-                    editText_calculate.setText(message);
+                        String message = Integer.toString(result);
+                        editText_calculate.setText(message);
 
-                } else if(operation.equals("subtraction")){
-                    String current_number_one = String.join("",userTyped);
-                    String current_number_two = String.join("",userTypedSave);
+                        break;
+                    }
+                    case "subtraction": {
+                        String current_number_one = String.join("", userTyped);
+                        String current_number_two = String.join("", userTypedSave);
 
-                    int number_one = Integer.parseInt(current_number_one);
-                    int number_two = Integer.parseInt(current_number_two);
+                        int number_one = Integer.parseInt(current_number_one);
+                        int number_two = Integer.parseInt(current_number_two);
 
-                    int result = number_one - number_two;
+                        result = number_one - number_two;
 
-                    String message = Integer.toString(result);
-                    editText_calculate.setText(message);
+                        String message = Integer.toString(result);
+                        editText_calculate.setText(message);
 
-                } else if(operation.equals("multiplication")){
-                    String current_number_one = String.join("",userTyped);
-                    String current_number_two = String.join("",userTypedSave);
+                        break;
+                    }
+                    case "multiplication": {
+                        String current_number_one = String.join("", userTyped);
+                        String current_number_two = String.join("", userTypedSave);
 
-                    int number_one = Integer.parseInt(current_number_one);
-                    int number_two = Integer.parseInt(current_number_two);
+                        int number_one = Integer.parseInt(current_number_one);
+                        int number_two = Integer.parseInt(current_number_two);
 
-                    int result = number_one * number_two;
+                        result = number_one * number_two;
 
-                    String message = Integer.toString(result);
-                    editText_calculate.setText(message);
+                        String message = Integer.toString(result);
+                        editText_calculate.setText(message);
 
-                } else if(operation.equals("division")){
-                    String current_number_one = String.join("",userTyped);
-                    String current_number_two = String.join("",userTypedSave);
+                        break;
+                    }
+                    case "division": {
+                        try {
+                            String current_number_one = String.join("", userTyped);
+                            String current_number_two = String.join("", userTypedSave);
 
-                    int number_one = Integer.parseInt(current_number_one);
-                    int number_two = Integer.parseInt(current_number_two);
+                            int number_one = Integer.parseInt(current_number_one);
+                            int number_two = Integer.parseInt(current_number_two);
 
-                    int result = number_two / number_one;
+                            result = number_two / number_one;
 
-                    String message = Integer.toString(result);
-                    editText_calculate.setText(message);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Faça a lógica de forma correta", Toast.LENGTH_SHORT).show();
+                            String message = Integer.toString(result);
+                            editText_calculate.setText(message);
+                        } catch (Exception e){
+                            editText_calculate.setText("Indefinido");
+                        }
+                        break;
+                    }
+                    default:
+                        Toast.makeText(getApplicationContext(), "Faça a lógica de forma correta", Toast.LENGTH_SHORT).show();
+                        break;
                 }
+                // O lançe e criar uma váriavel para saber se estou querendo somar o histórico
+                // e o Histórico eu quero salvar num1 + num2 = result e mostrar na tela fazer isso de forma individual
+                // vou fazer isso provavelmente com uma variável aplicada nas operações e zerando os arrays de número e verificando
+                // Descobrir se tem como colocar icone no botão
+                resultString = Integer.toString(result);
+                editText_history.setText(resultString);
 
             }
         });
